@@ -4,7 +4,6 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ReactDOM.render(<h1>Welcome to AirBnB</h1>, root);
   let store;
   if (window.currentUser) {
     const preloadedState = {
