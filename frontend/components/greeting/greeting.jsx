@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute }from '../../util/route_util';
 
 
-// import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
-// import aphroditeInterface from 'react-with-styles-interface-aphrodite';
-// import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
+import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
+import aphroditeInterface from 'react-with-styles-interface-aphrodite';
+import DefaultTheme from 'react-dates/lib/theme/DefaultTheme';
 
-// ThemedStyleSheet.registerInterface(aphroditeInterface);
-// ThemedStyleSheet.registerTheme(DefaultTheme);
+ThemedStyleSheet.registerInterface(aphroditeInterface);
+ThemedStyleSheet.registerTheme(DefaultTheme);
 
-// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -105,7 +105,7 @@ class Greeting extends React.Component {
                     placeholder="Location"
                     />
                 </label>
-                  {/* Date: 
+                  Date: 
                   <DateRangePicker
                     startDate={this.state.startDate} 
                     startDateId="your_unique_start_date_id"
@@ -117,7 +117,7 @@ class Greeting extends React.Component {
                     startDatePlaceholderText="Check in"
                     endDatePlaceholderText='Check out'
                     numberOfMonths={1}
-                  /> */}
+                  />
               </div>
             </form>
           </div>
