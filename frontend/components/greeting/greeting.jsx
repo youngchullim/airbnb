@@ -21,8 +21,8 @@ class Greeting extends React.Component {
       location: "",
       startDate: null,
       endDate: null,
-      adults: 0,
-      children: 0,
+      adults: "",
+      children: "",
       focusedInput: null
     };
 
@@ -105,19 +105,52 @@ class Greeting extends React.Component {
                     placeholder="Location"
                     />
                 </label>
+                <div className="greeting-date">
                   Date: 
-                  <DateRangePicker
-                    startDate={this.state.startDate} 
-                    startDateId="your_unique_start_date_id"
-                    endDate={this.state.endDate}
-                    endDateId="your_unique_end_date_id"
-                    onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
-                    focusedInput={this.state.focusedInput}
-                    onFocusChange={focusedInput => this.setState({ focusedInput })}
-                    startDatePlaceholderText="Check in"
-                    endDatePlaceholderText='Check out'
-                    numberOfMonths={1}
-                  />
+                  <p className="greeting-date-range-picker">
+                    <DateRangePicker
+                      startDate={this.state.startDate} 
+                      startDateId="your_unique_start_date_id"
+                      endDate={this.state.endDate}
+                      endDateId="your_unique_end_date_id"
+                      onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focusedInput => this.setState({ focusedInput })}
+                      startDatePlaceholderText="Check in"
+                      endDatePlaceholderText='Check out'
+                      numberOfMonths={1}
+                    />
+                  </p>
+                </div>
+                  {/* startDate turns into
+                  {console.log(new Date(this.state.startDate))}
+                  Tue Aug 20 2019 12:00:00 GMT-0700 (Pacific Daylight Time) */}
+                <div className="greeting-adults-wrapper">
+                  <select className="greeting-adults" onChange={this.update('adults')}>
+                    <option value="1">1 adult</option>
+                    <option value="2">2 adults</option>
+                    <option value="3">3 adults</option>
+                    <option value="4">4 adults</option>
+                    <option value="5">5 adults</option>
+                    <option value="6">6 adults</option>
+                    <option value="7">7 adults</option>
+                    <option value="8">8 adults</option>
+                    <option value="9">9 adults</option>
+                    <option value="10">10 adults</option>
+                    <option value="11">11 adults</option>
+                    <option value="12">12 adults</option>
+                  </select> 
+                </div>
+                <div className="greeting-children-wrapper">
+                  <select className="greeting-children" onChange={this.update('children')}>
+                    <option value="0">0 children</option>
+                    <option value="1">1 child</option>
+                    <option value="2">2 children</option>
+                    <option value="3">3 children</option>
+                    <option value="4">4 children</option>
+                    <option value="5">5 children</option>
+                  </select> 
+                </div>
               </div>
             </form>
           </div>
