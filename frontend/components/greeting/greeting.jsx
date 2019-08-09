@@ -94,6 +94,7 @@ class Greeting extends React.Component {
             </ul>
           </div>
           <div className="greeting-search">
+{/* SEARCH METHOD */}
             <form onSubmit={this.handleSearch} className="greeting-search-form">
               {/* <div className="login-error-message">{this.renderErrors()}</div> */}
               <div className="greeting-search-info">
@@ -151,6 +152,8 @@ class Greeting extends React.Component {
                     <option value="5">5 children</option>
                   </select> 
                 </div>
+
+                <input className="greeting-search-button" type="submit" value={"Search"} />
               </div>
             </form>
           </div>
