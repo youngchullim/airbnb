@@ -88,7 +88,7 @@ class LoginForm extends React.Component {
                   <div className="remember-me">Remember me</div>
                 </label>
                 <div className="login-space-between"></div>
-                <input className="login-button" type="submit" value={this.props.formType} />
+                <input className="login-button" type="submit" value={"Log In"} />
               </div>
               <br/>
               <div className="forgot-password"></div>
