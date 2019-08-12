@@ -1,4 +1,40 @@
 // DateRangePicker right border not showing NEED FIX
+.greeting {
+  background-image: image-url("greeting_background.jpg");
+  background-color: #cccccc; // Used if image in unavailable.
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.greeting-search-wrapper {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  max-width: 1080px !important;
+  margin: 0 auto !important;
+  color: #484848;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+}
+
+.greeting-search {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 442px !important;
+  padding: 32px !important;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  background-color: white;
+}
+
+.search-h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.search-p {
+  font-size: 20px;
+}
+
 .greeting-date-range-picker {
 }
 
@@ -20,3 +56,6 @@
   color: gray;
 }
 
+.greeting-guests {
+  display: flex;
+}
