@@ -7,7 +7,8 @@
   height: 100vh;
 }
 .greeting-search-wrapper {
-  padding-left: 24px !important;
+  padding-top: 10px;
+  padding-left: 70px !important;
   padding-right: 24px !important;
   max-width: 1080px !important;
   margin: 0 auto !important;
@@ -27,15 +28,51 @@
 }
 
 .search-h1 {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .search-p {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  margin-bottom: 15px;
+}
+
+.greeting-search-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.greeting-search-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 5px 0;
+}
+
+.location-input {
+  border: 1px solid lightgray;
+  padding: 12px;
+  width: 358px;
+  height: 22px;
+}
+
+.greeting-search-input {
+  margin-bottom: 10px;
 }
 
 .greeting-date-range-picker {
+  width: 385px;
+}
+// .DateRangePicker_d1ib85 {
+// }
+
+.greeting-adults-wrapper, .greeting-children-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .greeting-adults, .greeting-children {
@@ -58,4 +95,18 @@
 
 .greeting-guests {
   display: flex;
+}
+
+.greeting-search-button {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background-color: #FF5A5F;
+  border: 1px solid transparent;
+  // border-radius: 5px;
+  margin-top: 10px;
+  padding: 12px;
+  width: 358px;
+  height: 20px;
+  text-align: center;
 }
