@@ -106,15 +106,15 @@ class Greeting extends React.Component {
                   <label>
                     <p className="greeting-search-tag">WHERE</p>
                     <input type="text"
-                      className="location-input"
+                      className="location-input greeting-search-input"
                       value={this.state.location}
                       onChange={this.update('location')}
-                      placeholder="Location"
+                      placeholder="Anywhere"
                       />
                   </label>
                   <div className="greeting-date">
-                    <p className="greeting-search-tag">WHEN</p>
-                    <p className="greeting-date-range-picker">
+                    <div className="greeting-date-range-picker greeting-search-input">
+                      <p className="greeting-search-tag">WHEN</p>
                       <DateRangePicker
                         startDate={this.state.startDate} 
                         startDateId="your_unique_start_date_id"
@@ -123,18 +123,18 @@ class Greeting extends React.Component {
                         onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
                         focusedInput={this.state.focusedInput}
                         onFocusChange={focusedInput => this.setState({ focusedInput })}
-                        startDatePlaceholderText="Check in"
-                        endDatePlaceholderText='Check out'
+                        startDatePlaceholderText="mm/dd/yyyy"
+                        endDatePlaceholderText="mm/dd/yyyy"
                         numberOfMonths={1}
                       />
-                    </p>
+                    </div>
                   </div>
                     {/* startDate turns into
                     {console.log(new Date(this.state.startDate))}
                     Tue Aug 20 2019 12:00:00 GMT-0700 (Pacific Daylight Time) */}
                   <div className="greeting-guests">
-                    <p className="greeting-search-tag">ADULTS</p>
-                    <div className="greeting-adults-wrapper">
+                    <div className="greeting-adults-wrapper greeting-search-input">
+                      <p className="greeting-search-tag">ADULTS</p>
                       <select className="greeting-adults" onChange={this.update('adults')}>
                         <option value="1">1 adult</option>
                         <option value="2">2 adults</option>
@@ -150,7 +150,7 @@ class Greeting extends React.Component {
                         <option value="12">12 adults</option>
                       </select> 
                     </div>
-                    <div className="greeting-children-wrapper">
+                    <div className="greeting-children-wrapper greeting-search-input">
                       <p className="greeting-search-tag">CHILDREN</p>
                       <select className="greeting-children" onChange={this.update('children')}>
                         <option value="0">0 children</option>
