@@ -135,7 +135,7 @@ class Greeting extends React.Component {
                   <div className="greeting-guests">
                     <div className="greeting-adults-wrapper greeting-search-input">
                       <p className="greeting-search-tag">ADULTS</p>
-                      <select className="greeting-adults" onChange={this.update('adults')}>
+                      <select className="greeting-adults greeting-select" onChange={this.update('adults')}>
                         <option value="1">1 adult</option>
                         <option value="2">2 adults</option>
                         <option value="3">3 adults</option>
@@ -152,7 +152,7 @@ class Greeting extends React.Component {
                     </div>
                     <div className="greeting-children-wrapper greeting-search-input">
                       <p className="greeting-search-tag">CHILDREN</p>
-                      <select className="greeting-children" onChange={this.update('children')}>
+                      <select className="greeting-children greeting-select" onChange={this.update('children')}>
                         <option value="0">0 children</option>
                         <option value="1">1 child</option>
                         <option value="2">2 children</option>

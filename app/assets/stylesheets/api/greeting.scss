@@ -93,6 +93,10 @@
   color: gray;
 }
 
+.greeting-select:focus {
+  outline: none;
+}
+
 .greeting-guests {
   display: flex;
 }
