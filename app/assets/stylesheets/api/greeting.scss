@@ -1,4 +1,17 @@
 // DateRangePicker right border not showing NEED FIX
+
+.greeting-navbar {
+  color: #FF5A5F;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.airbnb-logo-img {
+  height: 30px;
+  width: 30px;
+}
+
 .greeting {
   background-image: image-url("greeting_background.jpg");
   background-color: #cccccc; // Used if image in unavailable.
