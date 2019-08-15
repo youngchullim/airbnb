@@ -76,10 +76,11 @@ class Greeting extends React.Component {
       result = (
         <div className="greeting">
           <div className="greeting-navbar">
-            <nav>
-              {/* change to Airbnb Icon */}
-              <Link to="/">AirBnb</Link>
-            </nav>
+            <button className="logo-button">
+              <a className="airbnb-logo" href="/">
+                <img className="airbnb-logo-img" src={window.airbnbLogo} />
+              </a>
+            </button>
             <ul className="greeting-user">
               <li className="greeting-signup">
                 <nav>
