@@ -20,6 +20,7 @@
   display: flex;
   width: 200px;
   justify-content: space-around;
+  font-size: 18px;
 }
 
 .greeting {
@@ -41,7 +42,7 @@
   // margin: 0 auto !important;
 
   position: relative;
-  top: 100px;
+  top: 75px;
   left: 100px;
   // align-self: center;
   color: #484848;
