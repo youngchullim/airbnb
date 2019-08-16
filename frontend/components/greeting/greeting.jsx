@@ -84,12 +84,14 @@ class Greeting extends React.Component {
             <ul className="greeting-user">
               <li className="greeting-signup">
                 <nav>
-                  <Link to="/signup">Sign Up</Link>
+                  <a>{this.props.signup}</a>
+                  {/* <Link to="/signup">Sign Up</Link> */}
                 </nav>
               </li>
               <li className="greeting-login">
                 <nav>
-                  <Link to="/login">Log In</Link>
+                  <a>{this.props.login}</a>
+                  {/* <Link to="/login">Log In</Link> */}
                 </nav>
               </li>
             </ul>
