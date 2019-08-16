@@ -1,6 +1,8 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import Greeting from './greeting';
 import { logout } from '../../actions/session_actions';
+import { openModal, closeModal} from '../../actions/modal_actions';
 
 
 const mapStateToProps = state => {
@@ -13,7 +15,22 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    login: (
+      <div className="playlist-button" role="button" onClick={() => dispatch(openModal('login'))}>
+        <div className="new-playlist">
+          <div className="playlist-center">Log In</div>
+        </div>
+      </div>
+    ),
+    signup: (
+      <div className="playlist-button" role="button" onClick={() => dispatch(openModal('signup'))}>
+        <div className="new-playlist">
+          <div className="playlist-center">Sign Up</div>
+        </div>
+      </div>
+    ),
+    closeModal: () => dispatch(closeModal()),
   });
 };
 
