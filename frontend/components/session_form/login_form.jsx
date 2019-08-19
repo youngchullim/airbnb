@@ -46,42 +46,30 @@ class LoginForm extends React.Component {
   render() {
     return(
       <div className="login">
-        <button className="logo-button">
-           {/* check application.html.erb to add image */}
-          <a className="login-logo" href="/">
-            <span className="login-airbnb">AirBnb</span>
-          </a>
-        </button>
-        <div className="login-form"><br/>
-          <div className="login-message">To continue, log in to AirBnb.</div><br/>
+        {/* <button className="x-login" onClick={this.props.closeModal}>X</button> */}
+        <img className="x-login" onClick={this.props.closeModal} src={window.modalX} />
+        <div className="login-message">Log in to continue</div><br/>
+        <div className="login-form">
             {/* DEMO BUTTON */}
-          <button className="demo-button" onClick={this.demoLogin}>LOG IN WITH DEMO</button><br/> 
           <form onSubmit={this.handleSubmit} >
-            <div className="or-border">
-              <div className="or">OR</div>
-            </div>
-            <br/>
             <div className="login-error-message">{this.renderErrors()}</div>
             <div className="login-info">
-              <br/>
-              <label>
+              <label onChange={this.props.clear}>
                 <input type="text"
-                  className="email-input"
+                  className="email-input login-input"
                   value={this.state.email}
                   onChange={this.update('email')}
-                  placeholder="Email address"
+                  placeholder="Email Address"
                   />
               </label>
-              <br/>
-              <label>
+              <label onChange={this.props.clear}>
                 <input type="password"
-                  className="password-input"
+                  className="password-input login-input"
                   value={this.state.password}
                   onChange={this.update('password')}
                   placeholder="Password"
                   />
               </label>
-              <br/>
               <div className="login-submit">
                 <label className="remember-submit">
                   <input className="remember-checkbox" type="checkbox"/>
@@ -89,15 +77,11 @@ class LoginForm extends React.Component {
                 </label>
                 <div className="login-space-between"></div>
                 <input className="login-button" type="submit" value={"Log In"} />
+                <button className="demo-button" onClick={this.demoLogin}>Log In with Demo</button><br/> 
               </div>
-              <br/>
-              <div className="forgot-password"></div>
-              <br/>
               <div className="signup-redirect">
                 <div className="no-account">Don't have an account?</div> 
-                <div className="signup-link-wrapper">
-                  <a className="signup-link" role="button" onClick={this.props.clear} href="#/signup">Sign Up</a>
-                </div>
+                <a className="signup-link" role="button" onClick={this.props.clear}>{this.props.signup}</a>
               </div>
             </div>
           </form>
