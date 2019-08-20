@@ -31,26 +31,13 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action({email: this.state.email, password: this.state.password});
+    this.props.signup({email: this.state.email, password: this.state.password});
   }
 
   demoLogin(e) {
     e.preventDefault();
-
-    // If I use multiple accounts, sign out and login with different accounts, it stays in the home page.
-    const demos = [
-      {email: "young1@gmail.com", password: "password"},
-      {email: "young2@gmail.com", password: "password"},
-      {email: "young3@gmail.com", password: "password"},
-      {email: "young4@gmail.com", password: "password"},
-      {email: "young5@gmail.com", password: "password"}
-    ];
-
-    let random_demo = demos[Math.floor(Math.random() * 5)];
-
-    // If I login with just one account it redirects to music player
-    let random_demo2 = {email: "young1@gmail.com", password: "password"};
-    this.props.login(random_demo2);
+    let demo = {email: "young1@gmail.com", password: "password"};
+    this.props.login(demo);
   }
 
   renderEmailErrors() {
@@ -130,27 +117,14 @@ class SignupForm extends React.Component {
   render() {
     return(
       <div className="signup">
-        <button className="logo-button">
-          <a className="signup-logo" href="/">
-            <img className="signup-black-logo" src={window.blackLogo} />
-            <span className="signup-modify">Modify</span>
-          </a>
-        </button>
-
-        <div className="signup-form"><br/>
-          {/* DEMO BUTTON */}
-        <button className="sn-demo-button" onClick={this.demoLogin}>LOG IN WITH DEMO</button><br/> 
+        <div className="signup-form">
           <form onSubmit={this.handleSubmit}>
-            <div className="sn-or-border">
-              <div className="sn-or">or</div>
-            </div>
             <div className="signup-message">Sign up with your email address</div>
-            <span className="required-fields">*</span>
-            <span className="required-msg">Required fields</span>
+            {/* <span className="required-fields">*</span>
+            <span className="required-msg">Required fields</span> */}
             <div className="signup-error-msg">{this.renderErrors()}</div>
 
             <div className="signup-info">
-              <br/>
               <label>
                 <span className="required">*</span>
                 <input type="text"
@@ -162,8 +136,6 @@ class SignupForm extends React.Component {
                   />
                 <div className="signup-error-messages">{this.renderEmailErrors()}</div>
               </label>
-
-              <br/>
               <label>
                 <input type="text"
                   className="confirm-email input input-space"
@@ -173,8 +145,6 @@ class SignupForm extends React.Component {
                   />
                 <div className="signup-error-messages">{this.renderConfirmEmailErrors()}</div>
               </label>
-
-              <br/>
               <label>
                 <span className="required">*</span>
                 <input type="password"
@@ -185,17 +155,13 @@ class SignupForm extends React.Component {
                   />
                   <div className="signup-error-messages">{this.renderPasswordErrors()}</div>
               </label>
-              <br/>
               <label>
                 <input type="text"
                   className="username input input-space"
                   placeholder="What should we call you?"
                   />
               </label>
-              <br/>
-              <br/>
               <div className="dob-text">Date of birth</div>
-              <br/>
               <select className="dob-month" placeholder="Month">
                 <option value="month">Month</option>
                 <option value="jan">January</option>
@@ -211,7 +177,6 @@ class SignupForm extends React.Component {
                 <option value="nov">November</option>
                 <option value="dec">December</option>
               </select> 
-              
               <label>
                 <input 
                   className="dob-day dob" 
@@ -220,7 +185,6 @@ class SignupForm extends React.Component {
                   type="text" 
                   placeholder="Day"/>
               </label>
-              
               <label>
                 <input 
                   className="dob-year dob" 
@@ -231,7 +195,6 @@ class SignupForm extends React.Component {
                 <div className="signup-error-messages">{this.renderDayErrors()}</div>
                 <div className="signup-error-messages">{this.renderYearErrors()}</div>
               </label>
-              <br/>
               <label className="m-label">
                 <input className="male pos-gen" type="radio" name="gender" value="male"/>
                 <div className="m mfb">Male</div>
@@ -244,14 +207,11 @@ class SignupForm extends React.Component {
                 <input className="non-binary pos-gen" type="radio" name="gender" value="non-binary"/>
                 <div className="b mfb">Non-binary</div>
               </label>
-              <br/>
-              <br/>
               <input className="signup-button" type="submit" value={this.props.formType} />
-              <br/>
-              <br/>
+              <button className="sn-demo-button" onClick={this.demoLogin}>Log In with Demo</button> 
               <span className="login-msg">Already have an account?</span>
               <span className="login-link-wrapper">
-                <a className="login-link login-msg" role="button" onClick={this.props.clear} href="#/login">Log In</a>
+                <a className="login-link login-msg" role="button" onClick={this.props.clear}>{this.props.loginForm}</a>
               </span>
             </div>
           </form>
