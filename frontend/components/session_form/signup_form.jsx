@@ -7,7 +7,8 @@ class SignupForm extends React.Component {
 
     this.state = {
       email: "",
-      confirmEmail: "",
+      firstName: "",
+      lastName: "",
       password: "",
       year: "",
       day: "",
@@ -17,7 +18,6 @@ class SignupForm extends React.Component {
 
 // TEST
     this.renderEmailErrors = this.renderEmailErrors.bind(this);
-    this.renderConfirmEmailErrors = this.renderConfirmEmailErrors.bind(this);
     this.renderPasswordErrors = this.renderPasswordErrors.bind(this);
     this.renderYearErrors = this.renderYearErrors.bind(this);
     this.renderDayErrors = this.renderDayErrors.bind(this);
@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
       if (email.includes("@") && email.includes(".")) {
         if (this.props.errors.length > 0) {
           return(
-            <span className="signup-error">We're sorry, that email is taken.</span>
+            <span className="signup-error">We are sorry, that email is taken.</span>
           )
         }
       } else {
@@ -54,14 +54,6 @@ class SignupForm extends React.Component {
           <span className="signup-error">The email address you supplied is invalid.</span>
         )
       }
-    }
-  }
-
-  renderConfirmEmailErrors() {
-    if (this.state.confirmEmail.length > 0 && this.state.email !== this.state.confirmEmail) {
-      return(
-        <span className="signup-error">Email address doesn't match.</span>
-      )
     }
   }
 
@@ -76,13 +68,13 @@ class SignupForm extends React.Component {
   renderYearErrors() {
     let numbers = /^\d+$/.test(this.state.year);
     if (numbers || this.state.year === "") {
-      if (parseInt(this.state.year) < 1900) {
+      if (parseInt(this.state.year) < 1900 || parseInt(this.state.year) > 2019) {
         return(
           <span className="signup-error">Please enter a valid year.</span>
         )
-      } else if (parseInt(this.state.year) > 2006) {
+      } else if (parseInt(this.state.year) > 2001) {
         return(
-          <span className="signup-error">Sorry, but you don't meet Modify's age requirements.</span>
+          <span className="signup-error">Sorry, but you don't meet AirBnb's age requirements.</span>
         )
       }
     } else {
@@ -117,6 +109,7 @@ class SignupForm extends React.Component {
   render() {
     return(
       <div className="signup">
+        <img className="x-login" onClick={this.props.closeModal} src={window.modalX} />
         <div className="signup-form">
           <form onSubmit={this.handleSubmit}>
             <div className="signup-message">Sign up with your email address</div>
@@ -126,9 +119,9 @@ class SignupForm extends React.Component {
 
             <div className="signup-info">
               <label>
-                <span className="required">*</span>
+                {/* <span className="required">*</span> */}
                 <input type="text"
-                  className="email input"
+                  className="email login-input"
                   value={this.state.email}
                   onChange={this.update('email')}
                   onClick={this.props.clear}
@@ -138,30 +131,32 @@ class SignupForm extends React.Component {
               </label>
               <label>
                 <input type="text"
-                  className="confirm-email input input-space"
-                  value={this.state.confirmEmail}
-                  onChange={this.update('confirmEmail')}
-                  placeholder="Confirm email"
+                  className="first-name login-input"
+                  value={this.state.firstName}
+                  onChange={this.update('firstName')}
+                  placeholder="First Name"
                   />
-                <div className="signup-error-messages">{this.renderConfirmEmailErrors()}</div>
-              </label>
-              <label>
-                <span className="required">*</span>
-                <input type="password"
-                  className="password input input-space"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  placeholder="Password"
-                  />
-                  <div className="signup-error-messages">{this.renderPasswordErrors()}</div>
               </label>
               <label>
                 <input type="text"
-                  className="username input input-space"
-                  placeholder="What should we call you?"
+                  className="last-name login-input"
+                  value={this.state.lastName}
+                  onChange={this.update('lastName')}
+                  placeholder="Last Name"
                   />
               </label>
-              <div className="dob-text">Date of birth</div>
+              <label>
+                {/* <span className="required">*</span> */}
+                <input type="password"
+                  className="password login-input "
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="Create a Password"
+                  />
+                  <div className="signup-error-messages">{this.renderPasswordErrors()}</div>
+              </label>
+              <div className="dob-text">Birthday</div>
+              <div className="dob-msg">To sign up, you need to be at least 18. Other people who use Airbnb won’t see your birthday.</div>
               <select className="dob-month" placeholder="Month">
                 <option value="month">Month</option>
                 <option value="jan">January</option>
@@ -195,24 +190,14 @@ class SignupForm extends React.Component {
                 <div className="signup-error-messages">{this.renderDayErrors()}</div>
                 <div className="signup-error-messages">{this.renderYearErrors()}</div>
               </label>
-              <label className="m-label">
-                <input className="male pos-gen" type="radio" name="gender" value="male"/>
-                <div className="m mfb">Male</div>
-              </label>
-              <label className="f-label">
-                <input className="female pos-gen" type="radio" name="gender" value="female"/>
-                <div className="f mfb">Female</div>
-              </label>
-              <label className="b-label">
-                <input className="non-binary pos-gen" type="radio" name="gender" value="non-binary"/>
-                <div className="b mfb">Non-binary</div>
-              </label>
-              <input className="signup-button" type="submit" value={this.props.formType} />
-              <button className="sn-demo-button" onClick={this.demoLogin}>Log In with Demo</button> 
-              <span className="login-msg">Already have an account?</span>
-              <span className="login-link-wrapper">
-                <a className="login-link login-msg" role="button" onClick={this.props.clear}>{this.props.loginForm}</a>
-              </span>
+              <div className="signup-options">
+                <input className="login-button" type="submit" value={this.props.formType} />
+                <button className="demo-button" onClick={this.demoLogin}>Log In with Demo</button> 
+                <div className="signup-redirect">
+                  <span className="yes-account">Already have an Airbnb account?</span>
+                  <a className="login-link" role="button" onClick={this.props.clear}>{this.props.loginForm}</a>
+                </div>
+              </div>
             </div>
           </form>
         </div>
