@@ -3,6 +3,108 @@
   width: 500px;
   position: relative;
   left: 35%;
-  top: 25%;
+  top: 10%;
   padding: 30px;
+}
+
+.signup-message {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 25px;
+  color: #484848;
+  text-align: left;
+}
+
+.signup-error {
+  color: red;
+}
+
+.dob-text {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  color: #484848;
+  text-align: left;
+}
+
+.dob-msg {
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #484848;
+  text-align: left;
+}
+
+// DOB MONTH
+.dob-month::-ms-expand {
+  display: none;
+}
+
+.dob-month:focus {
+  border: 1px solid #47A4A7;
+}
+
+.dob-month {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;       // remove default arrow 
+  background: white;
+  border: 1px solid #dfe0e6;
+  border-radius: 5px;
+  height: 40px;
+  border-radius: 2px;
+  width: 200px;
+  padding: 8px;
+  font-size: 14px;
+  color: gray;
+}
+
+// DOB DAY
+.dob-day {
+  height: 40px;
+  border: 1px solid #dfe0e6;
+  border-radius: 5px;
+  width: 100px;
+  margin-left: 20px;
+  border-radius: 2px;
+  text-align: left;
+  padding-left: 12px;
+}
+.dob::placeholder {
+  position: relative;
+  font-size: 14px;
+  color: gray;
+  font-weight: 500;
+  letter-spacing: 0.2;
+}
+
+.dob:focus::placeholder {
+  opacity: 0.5;
+  transition-duration: 0.3s;
+}
+
+.dob:focus {
+  border: 1px solid #47A4A7;
+}
+
+// DOB YEAR
+.dob-year {
+  height: 40px;
+  border: 1px solid #dfe0e6;
+  border-radius: 5px;
+  width: 130px;
+  margin-left: 20px;
+  border-radius: 2px;
+  text-align: left;
+  padding-left: 12px;
+}
+
+.signup-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-link {
+  margin-left: 5px;
+  color: #47A4A7;
 }
