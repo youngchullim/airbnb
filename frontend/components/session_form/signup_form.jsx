@@ -134,6 +134,7 @@ class SignupForm extends React.Component {
                   className="first-name login-input"
                   value={this.state.firstName}
                   onChange={this.update('firstName')}
+                  onClick={this.props.clear}
                   placeholder="First Name"
                   />
               </label>
@@ -142,6 +143,7 @@ class SignupForm extends React.Component {
                   className="last-name login-input"
                   value={this.state.lastName}
                   onChange={this.update('lastName')}
+                  onClick={this.props.clear}
                   placeholder="Last Name"
                   />
               </label>
@@ -151,6 +153,7 @@ class SignupForm extends React.Component {
                   className="password login-input "
                   value={this.state.password}
                   onChange={this.update('password')}
+                  onClick={this.props.clear}
                   placeholder="Create a Password"
                   />
                   <div className="signup-error-messages">{this.renderPasswordErrors()}</div>
@@ -177,6 +180,7 @@ class SignupForm extends React.Component {
                   className="dob-day dob" 
                   value={this.state.day} 
                   onChange={this.update("day")} 
+                  onClick={this.props.clear}
                   type="text" 
                   placeholder="Day"/>
               </label>
@@ -185,6 +189,7 @@ class SignupForm extends React.Component {
                   className="dob-year dob" 
                   value={this.state.year} 
                   onChange={this.update("year")} 
+                  onClick={this.props.clear}
                   type="text" 
                   placeholder="Year"/>
                 <div className="signup-error-messages">{this.renderDayErrors()}</div>
