@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import AuthComponent from '../auth';
-import { AuthRoute, ProtectedRoute }from '../../util/route_util';
+import AuthComponent from '../auth';
+// import { AuthRoute, ProtectedRoute }from '../../util/route_util';
 
 
 import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
@@ -66,7 +66,7 @@ class Greeting extends React.Component {
     if (this.props.currentUser) {
       result = (
         <div>
-          <AuthRoute
+          <AuthComponent
             currentUser={currentUser}
             logout={logout}
           />
